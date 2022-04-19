@@ -9,11 +9,11 @@ class AppController {
     }
 
     middlerwares() {
-        this.express.user(express.json());
+        this.express.use(express.json());
     }
 
     routes() {
-        this.express.use('./routes');
+        this.express.use(require('./routes'));
     }
 }
 

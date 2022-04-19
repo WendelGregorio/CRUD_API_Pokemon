@@ -8,6 +8,7 @@ module.exports = {
   operatorsAlieses: false,
   logging: false,
   define: {
+    timestamps: false,
     uderscored: true,
     uderscoredAll: true
   },

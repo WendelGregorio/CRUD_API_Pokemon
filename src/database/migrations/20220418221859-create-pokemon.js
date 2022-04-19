@@ -11,7 +11,9 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
+        unique: true,
         allowNull: false
+        
       },
       p_Atk_Base: {
         type: Sequelize.INTEGER,
