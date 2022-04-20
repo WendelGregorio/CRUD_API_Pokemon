@@ -22,8 +22,5 @@ module.exports = async (name, Atk, Def, Nivel, foc) => {
         nivel: Nivel,
         foco: foc
     });
-
-    const StatPokemon = JSON.stringify(`name: ${name}, Atk: ${Atk}, Def: ${Def}, AtkAtual: ${AtkAtual}, DefAtual: ${DefAtual}, Nivel: ${Nivel}, foco: ${foc}`)
-
-    return StatPokemon
+    res.end('O pokemon foi criado')
 }    
