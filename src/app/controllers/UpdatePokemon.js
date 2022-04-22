@@ -4,9 +4,7 @@ class UpdatePokemon{
     async store(req, res) {
         const { Atk, Def, Nivel, foc } = req.body
         const PokeName = req.params.name
-
         
-
         const StatsUpdated = await GetStatsUpdate(Atk, Def, Nivel, foc, PokeName)
 
         pokemons.update(StatsUpdated,{ where : { name: PokeName} });

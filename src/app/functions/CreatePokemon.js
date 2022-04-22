@@ -10,10 +10,9 @@ module.exports = async (name, Atk, Def, foc) => {
     }else if (foc == 'Defesa') {
         AtkAtual = Atk + ( 3 )
         DefAtual = Def + ( 7 ) 
-    }else{
-        return res.end(JSON.stringify('Somente foco em ataque ou defesa'))
     }
-    pokemons.create({
+
+    return pokemons.create({
         name: name,
         p_Atk_Base: Atk,
         p_Def_Base: Def,
