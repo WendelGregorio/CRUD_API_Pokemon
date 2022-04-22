@@ -1,15 +1,15 @@
 const { pokemons } = require('../models')
 
-module.exports = async (name, Atk, Def, Nivel, foc) => {
+module.exports = async (name, Atk, Def, foc) => {
     let AtkAtual
     let DefAtual
     
     if (foc == 'Ataque'){
-        AtkAtual = Atk + ( 7 * Nivel)
-        DefAtual = Def + ( 3 * Nivel) 
+        AtkAtual = Atk + ( 7 )
+        DefAtual = Def + ( 3 ) 
     }else if (foc == 'Defesa') {
-        AtkAtual = Atk + ( 3 * Nivel)
-        DefAtual = Def + ( 7 * Nivel) 
+        AtkAtual = Atk + ( 3 )
+        DefAtual = Def + ( 7 ) 
     }else{
         return res.end(JSON.stringify('Somente foco em ataque ou defesa'))
     }
@@ -19,8 +19,7 @@ module.exports = async (name, Atk, Def, Nivel, foc) => {
         p_Def_Base: Def,
         p_Atk_Atual: AtkAtual,
         p_Def_Atual: DefAtual,
-        nivel: Nivel,
+        nivel: 1,
         foco: foc
     });
-    res.end('O pokemon foi criado')
 }    

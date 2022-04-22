@@ -20,4 +20,10 @@ routes.get('/pokemon/:name', async (req, res) => {
 
 routes.patch('/pokemon/:name',UpdatePokemon.store)
 
+routes.delete('/pokemon/:name', async (req, res) => {
+    PokeName = req.params.name
+    await pokemons.destroy({ where: { name: PokeName } } );
+    return res.send(JSON.stringify("O Pokemon: " + PokeName + ", foi deletado."));
+})
+
 module.exports = routes;

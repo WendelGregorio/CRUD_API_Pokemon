@@ -2,9 +2,9 @@ const { pokemons } = require('../models')
 const CreatePokemon = require('../functions/CreatePokemon')
 class ValidPokemon{
     async store(req, res) {
-        const { name, Atk, Def, Nivel, foc } = req.body
+        const { name, Atk, Def, foc } = req.body
 
-        if(!(name) || !(Atk) || !(Def) || !(Nivel) || !(foc)){
+        if(!(name) || !(Atk) || !(Def) || !(foc)){
             
             return res.end(JSON.stringify("Preencha todos os campos"))            
         }
@@ -17,20 +17,20 @@ class ValidPokemon{
 
         
 
-        CreatePokemon(name, Atk, Def, Nivel, foc);
+        CreatePokemon(name, Atk, Def, foc);
 
         let AtkAtual
         let DefAtual
         
         if (foc == 'Ataque'){
-            AtkAtual = Atk + ( 7 * Nivel)
-            DefAtual = Def + ( 3 * Nivel) 
+            AtkAtual = Atk + ( 7 )
+            DefAtual = Def + ( 3 ) 
         }else if (foc == 'Defesa') {
-            AtkAtual = Atk + ( 3 * Nivel)
-            DefAtual = Def + ( 7 * Nivel) 
+            AtkAtual = Atk + ( 3 )
+            DefAtual = Def + ( 7 ) 
         }
 
-        res.send(JSON.stringify(`Pokemon criado, name: ${name}, Atk: ${Atk}, Def: ${Def}, AtkAtual: ${AtkAtual}, DefAtual: ${DefAtual}, Nivel: ${Nivel}, foco: ${foc}`))
+        res.send(JSON.stringify(`Pokemon criado, name: ${name}, Atk: ${Atk}, Def: ${Def}, AtkAtual: ${AtkAtual}, DefAtual: ${DefAtual}, Nivel: 1, foco: ${foc}`))
     }
 }
 
